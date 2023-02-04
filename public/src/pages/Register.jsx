@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Logo } from "../assets/Logo.svg";
+import { Logo } from "../assets/logo.svg";
 function Register() {
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,6 +13,7 @@ function Register() {
         <FormContainer >
             <form onSubmit={(event)=>handleSubmit(event)}>
                 <div className="brand">
+                    <img src={Logo} alt="logo" />
                     <h1>PeerAcademy</h1>
                 </div>
                 <input 
