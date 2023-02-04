@@ -69,16 +69,16 @@ const FormContainer = styled.div`
         gap: 1rem;
         justify-content: center;
         img {
-            height: 15rem;
+            height: 250px;
         }
     }
     form {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
         background-color: #00000076;
-        border-radius: 2rem;
-        padding: 3rem 5rem;
+        border-radius: 1rem;
+        padding: 2rem 3rem;
         input {
             background-color: transparent;
             padding: 1rem;
@@ -89,7 +89,30 @@ const FormContainer = styled.div`
             font-size: 1rem;
             &focus {
                 border: 0.1rem solid #495FA6;
+                outline: none;
             }
+        }
+        button {
+            background-color: #00bfff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 0.4rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: 0.2s ease-in-out;
+            &:hover {
+                background-color: #495FA6;
+            }
+        }
+        span {color: white;}
+        text-transform: uppercase;
+        a {
+            color: #00bfff;
+            text-decoration: none;
+            font-weight: bold;
         }
     }
 `;
