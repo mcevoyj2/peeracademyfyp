@@ -13,7 +13,6 @@ function Register() {
             <form onSubmit={(event)=>handleSubmit(event)}>
                 <div className="brand">
                     <img src={require("./peerlogo.png")} alt="PeerAcademy"/>
-                    <h1>PeerAcademy</h1>
                 </div>
                 <input 
                     type="text" 
@@ -63,20 +62,35 @@ const FormContainer = styled.div`
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    background-color: #FFFFFF;
+    background-color: #495FA6;
     .brand {
         display: flex;
         align-items: center;
         gap: 1rem;
         justify-content: center;
         img {
-            height: 5rem;
-
+            height: 15rem;
         }
-        h1 {
-            color: #00c2cb;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: #00000076;
+        border-radius: 2rem;
+        padding: 3rem 5rem;
+        input {
+            background-color: transparent;
+            padding: 1rem;
+            border:0.1rem solid #4e0eff;
+            border-radius: 0.4rem;
+            color: white;
+            width: 100%;
+            font-size: 1rem;
+            &focus {
+                border: 0.1rem solid #495FA6;
+            }
         }
-
     }
 `;
 
