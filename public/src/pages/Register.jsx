@@ -12,7 +12,7 @@ function Register() {
         <FormContainer >
             <form onSubmit={(event)=>handleSubmit(event)}>
                 <div className="brand">
-                    <img src={require("./palogo.png")} alt="PeerAcademy"/>
+                    <img src={require("./peerlogo.png")} alt="PeerAcademy"/>
                     <h1>PeerAcademy</h1>
                 </div>
                 <input 
@@ -63,7 +63,7 @@ const FormContainer = styled.div`
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    background-color: #f5f5dc;
+    background-color: #FFFFFF;
     .brand {
         display: flex;
         align-items: center;
