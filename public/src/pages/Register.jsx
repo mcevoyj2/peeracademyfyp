@@ -1,12 +1,69 @@
-import React from "react";
+import React,{ useState, useEffect} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { registerRoute, RegisterRoute } from "../utils/APIRoutes";
+
 function Register() {
-    const handleSubmit = (event) => {
+    const[values,setValues] = useState({
+        username: "",
+        studentnumber: "",
+        email: "",
+        password: "",
+        confirmpassword: "",
+    });
+
+    const toastOptions = {
+            position: "bottom-right",
+            autoClose: 8000,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+        }
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        alert("You have submitted the form");
-    }
-    const handleChange = (event) => {}
+        if (handleValidation()) {
+            console.log("in validation", registerRoute);
+            const {username,studentnumber,email,password,confirmpassword} = values;
+            const { data } = await axios.post(registerRoute, { 
+                username,
+                studentnumber,
+                email,
+                password,
+                confirmpassword,
+                });
+            }
+    };
+
+    const handleValidation = () => {   
+        const {username,studentnumber,email,password,confirmpassword} = values;
+        if (password!==confirmpassword) {
+            toast.error("Passwords do not match", 
+            toastOptions
+            );
+            return false;
+        } else if(username.length<3)  {
+        toast.error("Username must be at least 3 characters", toastOptions);
+        return false;
+        } else if(studentnumber.length!=8) {
+            toast.error("Student number is incorrect length ", toastOptions);
+            return false;
+        } else if (password.length < 8) {
+            toast.error("Password must be at least 8 characters", toastOptions);
+            return false;
+        } else if(email=="") {
+            toast.error("Email cannot be empty", toastOptions);
+            return false;
+        }
+        return true;
+    };
+
+    const handleChange = (event) => {
+        setValues({...values, [event.target.name]:event.target.value})
+    };
   return(
     <>
         <FormContainer >
@@ -23,7 +80,7 @@ function Register() {
                 <input 
                     type="text" 
                     placeholder="Student Number" 
-                    name="student number" 
+                    name="studentnumber" 
                     onChange={e=>handleChange(e)}
                 />
                 <input 
@@ -41,7 +98,7 @@ function Register() {
                 <input 
                     type="password"
                     placeholder="Confirm Password" 
-                    name="confirm password" 
+                    name="confirmpassword" 
                     onChange={e=>handleChange(e)}
                 />
                 <button type="submit">Register</button>
@@ -50,6 +107,7 @@ function Register() {
                 </span>
             </form>
         </FormContainer>
+        <ToastContainer />
     </>
   );
 }
