@@ -24,11 +24,15 @@ function Register() {
             draggable: true,
             theme: "dark",
         }
+        useEffect(() => {
+            if(localStorage.getItem("peer-academy-user")) {
+              navigate("/");
+            }
+          }, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (handleValidation()) {
-            console.log("in validation", registerRoute);
             const {username,studentnumber,email,password} = values;
             const { data } = await axios.post(registerRoute, { 
                 username,
