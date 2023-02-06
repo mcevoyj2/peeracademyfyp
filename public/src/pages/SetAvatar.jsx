@@ -21,7 +21,7 @@ export default function SetAvatar() {
     draggable: true,
     theme: "dark",
   };
-
+  const setProfile = async () => {};
   useEffect(async () => {
     const data = [];
     for (let i = 0; i < 4; i++) {
@@ -34,7 +34,7 @@ export default function SetAvatar() {
     setAvatars(data);
     setIsLoading(false);
   }, []);
-  return(
+  return (
   <>
   <Container>
     <div classname="title-container">
@@ -52,13 +52,15 @@ export default function SetAvatar() {
             onClick={() => setSelectedAvatar(index)}
           </div>
               )
-        })
+        }
+        )
       }
     </div>
     </Container>;
   <ToastContainer />
   </>
   );
+  
 }
 
 const Container = styled.div``;
