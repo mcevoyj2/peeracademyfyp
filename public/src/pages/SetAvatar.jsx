@@ -10,10 +10,12 @@ export default function SetAvatar() {
   const api = 'https://api.multiavatar.com/45678945';
   const navigate = useNavigate();
 
-  return;
+  return(
   <>
   <Container>SetAvatar</Container>;
-  </>;
+  <ToastContainer />
+  </>
+  );
 }
 
 const Container = styled.div``;
